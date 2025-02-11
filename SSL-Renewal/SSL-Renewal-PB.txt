@@ -1,0 +1,30 @@
+sudo apt update
+sudo apt install certbot
+sudo certbot certonly --manual --preferred-challenges=dns -d paybyte.company
+Add DNS TXT Record
+
+Combine Certificate and Private Key:
+
+Certificate: /etc/letsencrypt/live/paybyte.company/fullchain.pem
+
+Private Key: /etc/letsencrypt/live/paybyte.company/privkey.pem
+
+Import the Certificate into AWS ACM in us-east-1 region for cloudfront and your service region (Mumbai or UAE)
+
+    Certificate Body: Copy the contents of fullchain.pem.
+
+    Certificate Private Key: Copy the contents of privkey.pem.
+
+    Certificate Chain: Copy the contents of chain.pem
+
+Adding certificate in Loadbalancer Listner
+
+Adding certificate in cloudfront general settings
+
+
+
+ ssl_certificate        /etc/pki/nginx/server.crt;
+ ssl_certificate_key    /etc/pki/nginx/server.key;
+
+vim /etc/pki/nginx/server.crt {Provide the certifacete value}
+/etc/pki/nginx/server.key     {Provide the private key valuse}
