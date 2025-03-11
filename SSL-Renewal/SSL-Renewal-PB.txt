@@ -28,3 +28,7 @@ Adding certificate in cloudfront general settings
 
 vim /etc/pki/nginx/server.crt {Provide the certifacete value}
 /etc/pki/nginx/server.key     {Provide the private key valuse}
+
+sudo nginx -t
+sudo systemctl reload nginx
+
