@@ -1,6 +1,6 @@
 sudo apt update
 sudo apt install certbot
-sudo certbot certonly --manual --preferred-challenges=dns -d paybyte.company
+sudo certbot certonly --manual --preferred-challenges=dns -d paybyte.company -d www.paybyte.company
 Add DNS TXT Record
 
 Combine Certificate and Private Key:
